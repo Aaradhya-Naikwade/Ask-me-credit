@@ -1,0 +1,147 @@
+.testi-section {
+  padding: 100px 0;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.testi-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.testi-badge {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.testi-header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 15px;
+}
+
+.testi-header span {
+  color: #2563eb;
+}
+
+.testi-swiper {
+  padding: 40px 10px 70px 10px !important;
+}
+
+/* THE MODERN CARD */
+.testi-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 30px;
+  border: 1px solid #f1f5f9;
+  position: relative;
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.testi-card:hover {
+  transform: translateY(-10px);
+  border-color: #2563eb;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
+}
+
+.quote-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 5rem;
+  color: #eff6ff;
+  font-family: serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.stars {
+  color: #fbbf24;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.rev-text {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  z-index: 1;
+}
+
+.testi-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: auto;
+}
+
+/* Avatar with Verified Badge */
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar-main {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.verified-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: #22c55e;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+.user-details h4 {
+  font-size: 1rem;
+  color: #0f172a;
+  margin: 0;
+  font-weight: 700;
+}
+
+.user-details p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.loan-type {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Swiper Pagination Styling */
+.swiper-pagination-bullet-active {
+  background: #2563eb !important;
+  width: 25px !important;
+  border-radius: 5px !important;
+}

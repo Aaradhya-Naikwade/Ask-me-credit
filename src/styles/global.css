@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import "./reset.css";
+@import "./variables.css";
+
+body {
+  /* Poppins added here. Fallback to Segoe UI and sans-serif */
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  /* Optional: Standard for modern web fonts to look smoother */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  /* This ensures buttons also use Poppins */
+  font-family: inherit; 
+}
+
+/* Reusable Wrapper */
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+}

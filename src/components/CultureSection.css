@@ -1,0 +1,104 @@
+.culture-section {
+  padding: 100px 0;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.culture-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.culture-header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 15px;
+  letter-spacing: -1.2px;
+}
+
+.culture-header p {
+  color: #64748b;
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 4-Column Grid */
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.culture-card {
+  padding: 35px 25px;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the left */
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.culture-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.culture-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Interaction */
+.culture-card:hover {
+  border-color: #2563eb;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+.culture-card:hover .card-icon {
+  background: #eff6ff;
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+/* Responsive Logic */
+@media (max-width: 1100px) {
+  .culture-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .culture-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+  
+  .culture-header h2 {
+    font-size: 2rem;
+  }
+  
+  .culture-card {
+    align-items: center;
+    text-align: center; 
+  }
+}

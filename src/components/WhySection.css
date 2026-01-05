@@ -1,0 +1,130 @@
+.why-section {
+  padding: 100px 0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.why-container {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Left Content */
+.why-left {
+  flex: 1;
+}
+
+.why-left h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.why-left span{
+    color: #2563eb;
+}
+
+.why-left p {
+  font-size: 1.15rem;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 550px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border-color: #a7d3f2;
+}
+
+.icon-placeholder {
+  width: 50px;
+  height: 50px;
+  background: #eff6ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #2563eb;
+}
+
+.feature-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0; /* Override parent p margin */
+}
+
+/* Right Image */
+.why-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-right img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 30px;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .why-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+  .why-left h2 {
+    font-size: 2.5rem;
+  }
+  .why-left p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+    max-width: 400px; /* Constrain card width */
+    margin: 0 auto;
+  }
+  .feature-card {
+    text-align: left;
+  }
+}
+
+@media (max-width: 500px) {
+  .why-left h2 {
+    font-size: 2rem;
+  }
+}

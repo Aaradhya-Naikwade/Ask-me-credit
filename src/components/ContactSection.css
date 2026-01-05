@@ -1,0 +1,112 @@
+.contact-section {
+  padding: 100px 0;
+  background-color: #0f172a; /* Solid Deep Navy */
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* Left Side Styling */
+.contact-left {
+  flex: 1.2;
+}
+
+.contact-pill {
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
+
+.contact-left h2 {
+  font-size: 3.2rem;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 15px 0 25px;
+}
+
+.contact-left h2 span {
+  color: #3b82f6;
+}
+
+.contact-left p {
+  color: #94a3b8;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 550px;
+  margin-bottom: 40px;
+}
+
+/* Button Styling */
+.contact-actions {
+  display: flex;
+  align-items: center;
+}
+
+.contact-main-btn {
+  padding: 18px 40px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.contact-main-btn:hover {
+  background: #2563eb;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+}
+
+.contact-main-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.contact-main-btn:hover svg {
+  transform: translateX(5px);
+}
+
+/* Right Side Image Styling */
+.contact-right {
+  flex: 1;
+}
+
+.contact-img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-right img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 40px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+  .contact-left h2 { font-size: 2.5rem; }
+  .contact-left p { margin: 0 auto 30px; }
+  .contact-actions { justify-content: center; }
+  .contact-img-wrapper { justify-content: center; }
+}

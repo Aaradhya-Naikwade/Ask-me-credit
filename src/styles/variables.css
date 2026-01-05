@@ -1,0 +1,14 @@
+:root {
+  --primary-blue: #1e40af;
+  --secondary-blue: #2563eb;
+
+  --text-dark: #0f172a;
+  --text-light: #475569;
+
+  --bg-light: #f8fafc;
+  --white: #ffffff;
+
+  /* layout */
+  --max-width: 1200px;
+  --side-padding: 24px;
+}
