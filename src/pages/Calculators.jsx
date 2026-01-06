@@ -1,4 +1,3 @@
-// src/pages/Calculators.jsx
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./Calculators.css";
@@ -14,25 +13,37 @@ const calculators = [
     title: "Personal Loan Calculator",
     description:
       "Estimate EMIs and total interest for your personal loan instantly.",
-    link: "/calculators/personal-loan",
+    link: "/personal-loan-calculator",
   },
   {
     title: "Home Loan Calculator",
     description:
       "Plan your home loan with accurate EMI, tenure, and interest insights.",
-    link: "/calculators/home-loan",
+    link: "/home-loan-calculator",
   },
   {
     title: "Business Loan Calculator",
     description:
       "Understand repayment structure and interest cost for business loans.",
-    link: "/calculators/business-loan",
+    link: "/business-loan-calculator",
   },
   {
     title: "Car Loan Calculator",
     description:
       "Check EMIs for new or used car loans with flexible tenure options.",
-    link: "/calculators/car-loan",
+    link: "/car-loan-calculator",
+  },
+  {
+    title: "Two-Wheeler Loan Calculator",
+    description:
+      "Check EMIs for new or used car loans with flexible tenure options.",
+    link: "/two-wheeler-loan-calculator",
+  },
+  {
+    title: "Commercial Vehicle Loan Calculator",
+    description:
+      "Check EMIs for new or used car loans with flexible tenure options.",
+    link: "/commercial-vehicle-loan-calculator",
   },
   {
     title: "Loan Eligibility Calculator",
@@ -55,7 +66,7 @@ const Calculators = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-pill">Calculators</span>
+          <span className="section-pill">Smart Financial Tools</span>
           <h2>
             Smart <span>Loan Calculators</span>
           </h2>
