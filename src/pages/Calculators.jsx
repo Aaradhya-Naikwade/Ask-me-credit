@@ -46,6 +46,12 @@ const calculators = [
     link: "/commercial-vehicle-loan-calculator",
   },
   {
+    title: "GST Calculator",
+    description:
+      "Know how much loan amount you are eligible for based on income.",
+    link: "/gst-calculator",
+  },
+  {
     title: "Loan Eligibility Calculator",
     description:
       "Know how much loan amount you are eligible for based on income.",

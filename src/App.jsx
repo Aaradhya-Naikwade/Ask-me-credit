@@ -8,6 +8,7 @@ import BusinessLoanCalculator from "./pages/Calculators/BusinessLoanCalculator"
 import CarLoanCalculator from "./pages/Calculators/CarLoanCalculator"
 import TwoWheelerLoanCalculator from "./pages/Calculators/TwoWheelerLoanCalculator"
 import CommercialVehicleLoanCalculator from "./pages/Calculators/CommercialVehicleLoanCalculator"
+import GSTCalculator from "./pages/Calculators/GSTCalculator"
 
 
 import AboutUs from "./pages/AboutUs";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/car-loan-calculator" element={<CarLoanCalculator />} />
         <Route path="/two-wheeler-loan-calculator" element={<TwoWheelerLoanCalculator />} />
         <Route path="/commercial-vehicle-loan-calculator" element={<CommercialVehicleLoanCalculator />} />
+        <Route path="/gst-calculator" element={<GSTCalculator />} />
 
         <Route path="/calculators" element={<Calculators />} />
         <Route path="/apply" element={<Placeholder title="Apply for Loan" />} />

@@ -7,9 +7,9 @@ import "./Calculators.css";
 
 const HomeLoanCalculator = () => {
     // Updated defaults for Home Loan
-    const [amount, setAmount] = useState(3000000); // 30 Lakhs
+    const [amount, setAmount] = useState(3000000); 
     const [rate, setRate] = useState(8.5);
-    const [tenure, setTenure] = useState(240); // 20 Years
+    const [tenure, setTenure] = useState(240); 
     const [emi, setEmi] = useState(0);
     const [schedule, setSchedule] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
