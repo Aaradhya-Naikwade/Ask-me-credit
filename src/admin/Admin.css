@@ -1,0 +1,215 @@
+/* ================================
+   COLOR VARIABLES
+================================ */
+:root {
+    --primary-blue: #0e6bff;
+    --dark-blue: #0f172a;
+    --light-blue: #eaf1ff;
+    --border-color: #e5e7eb;
+    --text-dark: #0f172a;
+    --text-light: #64748b;
+    --danger: #ef4444;
+    --white: #ffffff;
+}
+
+/* ================================
+   ADMIN LOGIN
+================================ */
+.admin-login {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #0e6bff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.admin-login form {
+    background: var(--white);
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 14px;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.admin-login h2 {
+    text-align: center;
+    color: var(--light-blue);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.admin-login input {
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    outline: none;
+}
+
+.admin-login input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(14, 107, 255, 0.15);
+}
+
+.admin-login button {
+    background: linear-gradient(135deg, var(--primary-blue), #2563eb);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.admin-login .error {
+    color: var(--danger);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ================================
+   ADMIN DASHBOARD
+================================ */
+.admin-dashboard {
+    padding: 32px;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.admin-header h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.logout-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* ================================
+   TABLE
+================================ */
+.admin-dashboard table {
+    width: 100%;
+    background: var(--white);
+    border-radius: 14px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+}
+
+.admin-dashboard thead {
+    background: linear-gradient(135deg, #0f172a, #0e6bff);
+}
+
+.admin-dashboard thead th {
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 14px;
+    text-align: left;
+}
+
+.admin-dashboard tbody td {
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-dashboard tbody tr:hover {
+    background: var(--light-blue);
+}
+
+.admin-dashboard tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+    background: var(--danger);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+/* EMPTY STATE */
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 20px;
+    }
+
+    .admin-dashboard thead {
+        display: none;
+    }
+
+    .admin-dashboard table,
+    .admin-dashboard tbody,
+    .admin-dashboard tr,
+    .admin-dashboard td {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-dashboard tr {
+        margin-bottom: 16px;
+        border-radius: 12px;
+        background: var(--white);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .admin-dashboard td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .admin-dashboard td:last-child {
+        border-bottom: none;
+    }
+}
