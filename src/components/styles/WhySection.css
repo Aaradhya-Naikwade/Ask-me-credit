@@ -102,9 +102,9 @@
 
 .why-right img {
   width: 100%;
-  max-width: 560px;
+  max-width: 600px;
   border-radius: 28px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15); */
 }
 
 /* RESPONSIVE */

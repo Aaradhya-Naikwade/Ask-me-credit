@@ -80,7 +80,7 @@ const WhySection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <img
-            src="src/assets/Demo.avif"
+            src="/images/why-section.png"
             alt="Why Choose Ask Me Credit"
           />
         </motion.div>

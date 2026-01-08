@@ -1,4 +1,6 @@
+
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; 
 import "../components/styles/LoanTypes.css";
 
 const loanData = [
@@ -6,31 +8,43 @@ const loanData = [
     title: "Personal Loan",
     features: ["Instant Approval", "No Collateral", "Flexible Tenure"],
     tag: "Most Popular",
+    image: "/images/loans/personal-loan.jpg",
+    link: "/loans/personal"
   },
   {
     title: "Business Loan",
     features: ["Scale Operations", "Low Interest", "Tax Benefits"],
     tag: "For Startups",
+    image: "/images/loans/business-loan.png",
+    link: "/loans/business"
   },
   {
     title: "Home Loan",
     features: ["Long Term", "Low EMI", "Quick Processing"],
     tag: "Best Rates",
+    image: "/images/loans/home-loan.jpg",
+    link: "/loans/home"
   },
   {
     title: "Education Loan",
     features: ["Study Abroad", "Grace Period", "Easy Repayment"],
     tag: "Student First",
+    image: "/images/loans/education-loan.jpg",
+    link: "/loans/education"
   },
   {
     title: "Car Loan",
     features: ["New & Used", "Zero Downpayment", "On-road Funding"],
     tag: "Instant",
+    image: "/images/loans/car-loan.jpg",
+    link: "/loans/car"
   },
   {
     title: "Gold Loan",
     features: ["High LTV", "Safe Storage", "Immediate Cash"],
     tag: "Secure",
+    image: "/images/loans/gold-loan.png",
+    link: "/loans/gold"
   },
 ];
 
@@ -70,7 +84,9 @@ const LoanTypes = () => {
                 <h3 className="loan-title">{loan.title}</h3>
               </div>
 
-              <div className="loan-icon-space" />
+              <div className="loan-icon-space">
+                <img src={loan.image} alt={loan.title} />
+              </div>
 
               <ul className="loan-features">
                 {loan.features.map((feat, i) => (
@@ -78,19 +94,22 @@ const LoanTypes = () => {
                 ))}
               </ul>
 
-              <button className="loan-btn">
-                Apply Now
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
+              {/* Wrapped button in a Link component */}
+              <Link to={loan.link} className="loan-btn-link">
+                <button className="loan-btn">
+                  Apply Now
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>

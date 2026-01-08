@@ -1,6 +1,7 @@
 .credit-section {
   padding: 100px 0;
-  background-color: #f8fafc; /* Subtle light gray to distinguish from Home section */
+  background-color: #f8fafc;
+  /* Subtle light gray to distinguish from Home section */
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
@@ -115,12 +116,14 @@
 .image-wrapper {
   position: relative;
   z-index: 1;
+
 }
 
 .credit-right img {
   width: 100%;
   border-radius: 30px;
-  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15); */
+  background: none;
 }
 
 /* Small floating stat card over the image */
@@ -131,7 +134,7 @@
   background: white;
   padding: 20px 30px;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   text-align: center;
   animation: float 4s ease-in-out infinite;
 }
@@ -150,8 +153,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 /* Responsive */
@@ -161,18 +171,26 @@
     text-align: center;
     gap: 60px;
   }
-  
-  .credit-left h2 { font-size: 2.2rem; }
-  
+
+  .credit-left h2 {
+    font-size: 2.2rem;
+  }
+
   .credit-points li {
     justify-content: center;
   }
-  
+
   .learn-more-btn {
     margin: 0 auto;
   }
 
   .feature-overlay-card {
     left: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .feature-overlay-card {
+    display: none;
   }
 }

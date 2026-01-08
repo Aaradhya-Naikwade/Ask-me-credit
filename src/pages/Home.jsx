@@ -12,14 +12,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 import "./styles/Home.css";
-// import LoanForm from "../components/LoanForm";
 
 const Home = () => {
   const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const words = ["Simple Decisions", "Fast Approvals", "Better Rates", "Secure Future"];
 
-  // Cycle through words every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length);
@@ -29,12 +27,13 @@ const Home = () => {
 
   return (
     <>
-      {/* <LoanForm /> */}
       <Navbar />
+
       <main className="home">
-        {/* Modern Background Accents */}
+        {/* Background accents */}
         <div className="bg-blur-circle blue"></div>
         <div className="bg-blur-circle light"></div>
+
 
         <div className="home-wrapper">
           {/* Left Content */}
@@ -70,8 +69,10 @@ const Home = () => {
             </p>
 
             <div className="home-actions">
-              <button className="primary-btn">Apply for Loan</button>
-              {/* <button className="secondary-btn">Calculate EMI</button> */}
+              <button className="primary-btn"
+                onClick={() => navigate("/apply")}
+              >Apply for Loan</button>
+
               <button
                 className="secondary-btn"
                 onClick={() => navigate("/emi-calculator")}
@@ -79,23 +80,18 @@ const Home = () => {
                 Calculate EMI
               </button>
             </div>
-
-          </motion.div>
-
-          {/* Right Side Image */}
-          <motion.div
-            className="home-image"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="img-wrapper">
-              <img src="src/assets/Demo.avif" alt="Financial Dashboard" />
-              <div className="img-glow"></div>
-            </div>
           </motion.div>
         </div>
+
+        {/* FULL HEIGHT RIGHT IMAGE */}
+        <motion.div
+          className="home-bg-image"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img src="/images/Hero.png" alt="Financial Dashboard" />
+        </motion.div>
       </main>
 
       <LoanTypes />

@@ -1,11 +1,7 @@
 /* ===== SECTION ===== */
 .loan-section {
   padding: 100px 0;
-  background: linear-gradient(
-    180deg,
-    #f8fbff 0%,
-    #ffffff 60%
-  );
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 60%);
   font-family: "Poppins", sans-serif;
 }
 
@@ -60,11 +56,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-
-  /* 🔥 IMPORTANT VISIBILITY FIX */
   border: 1px solid #e5edff;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-
   transition: all 0.35s ease;
 }
 
@@ -97,16 +90,21 @@
   color: #0f172a;
 }
 
-/* ===== ICON SPACE ===== */
-.loan-icon-space {
-  height: 60px;
+/* ===== IMAGE ===== */
+/* .loan-icon-space {
+  height: 90px;
   margin: 28px 0;
   border-radius: 16px;
-  background: linear-gradient(
-    135deg,
-    #eff6ff,
-    #ffffff
-  );
+  background: linear-gradient(135deg, #eff6ff, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.loan-icon-space img {
+  max-height: 150px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* ===== FEATURES ===== */

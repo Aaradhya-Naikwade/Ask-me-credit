@@ -1,126 +1,120 @@
-/* ===== SECTION ===== */
 .loan-section {
-  padding: 140px 0 100px;
-  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 60%);
-  font-family: "Poppins", sans-serif;
+  padding: 100px 0;
+  background: #fcfdfe;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* ===== HEADER ===== */
 .loan-header {
   text-align: center;
-  margin-bottom: 70px;
-}
-
-.section-pill {
-  background: #e0ecff;
-  color: #2563eb;
-  padding: 6px 18px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  margin-bottom: 60px;
 }
 
 .loan-header h2 {
-  font-size: 2.7rem;
-  color: #0f172a;
-  margin: 18px 0 10px;
-  font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a233a;
 }
 
 .loan-header h2 span {
   color: #2563eb;
 }
 
-.loan-header p {
-  color: #64748b;
-  font-size: 1.05rem;
-  max-width: 640px;
-  margin: auto;
-}
-
-/* ===== GRID ===== */
+/* GRID SYSTEM */
 .loan-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 20px;
 }
 
-/* ===== CARD ===== */
+/* CARD DESIGN AS PER IMAGE */
 .loan-card {
   background: #ffffff;
-  border-radius: 28px;
-  padding: 36px;
-  position: relative;
-  border: 1px solid #e5edff;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-  transition: all 0.35s ease;
-  cursor: pointer;
+  border-radius: 16px;
+  padding: 40px;
+  min-height: 380px;
   display: flex;
   flex-direction: column;
-  min-height: 230px;
+  justify-content: space-between;
+  border: 1px solid #f0f3f7;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .loan-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(37, 99, 235, 0.18);
-  border-color: #c7dbff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
 }
 
-/* ===== CONTENT ===== */
-.card-content {
-  padding-right: 20px;
-}
-
+/* TEXT AREA */
 .loan-title {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 12px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0d1b3e;
+  margin-bottom: 25px;
+  line-height: 1.2;
 }
 
 .loan-desc {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.6;
+  font-size: 1.3rem;
+  color: #4a5b7d;
+  line-height: 1.4;
+  max-width: 90%;
 }
 
-/* ===== ICON ===== */
-.card-icon {
-  position: absolute;
-  bottom: 26px;
-  right: 28px;
-  width: 44px;
-  height: 44px;
+/* FOOTER AREA */
+.card-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* CIRCLE BUTTON (Bottom Left) */
+.circle-arrow-btn {
+  width: 26px;
+  height: 26px;
+  background: #495775;
   border-radius: 50%;
-  background: #eff6ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2563eb;
-  transition: all 0.3s ease;
+  color: white;
+  transition: background 0.3s ease;
 }
 
-.loan-card:hover .card-icon {
+.loan-card:hover .circle-arrow-btn {
   background: #2563eb;
-  color: #ffffff;
-  transform: translateX(4px);
+  /* Turns blue on hover */
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .loan-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ILLUSTRATION (Bottom Right) */
+.card-illustration {
+  width: 140px;
+  height: auto;
 }
 
-@media (max-width: 650px) {
-  .loan-grid {
-    grid-template-columns: 1fr;
+.card-illustration img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .loan-card {
+    min-height: 320px;
+    padding: 30px;
   }
 
-  .loan-header h2 {
-    font-size: 2.2rem;
+  .loan-title {
+    font-size: 1.6rem;
+  }
+
+  .loan-desc {
+    font-size: 1.1rem;
   }
 }

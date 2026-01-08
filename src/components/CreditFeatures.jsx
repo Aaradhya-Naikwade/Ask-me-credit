@@ -20,7 +20,7 @@ const CreditFeatures = () => {
             Flexible credit designed for real life—shopping, travel,
             emergencies, or business growth. Experience a seamless process from start to finish.
           </p>
-
+                        
           <ul className="credit-points">
             <li>
               <div className="check-icon">✓</div>
@@ -56,8 +56,8 @@ const CreditFeatures = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="image-wrapper">
-            <img src="src/assets/Demo.avif" alt="Credit Features" />
+          <div className="image-wrapper"> 
+            <img src="/images/Frame__5_-removebg-preview.png" alt="Credit Features" />
             <div className="feature-overlay-card">
               <h4>98%</h4>
               <p>Approval Rate</p>

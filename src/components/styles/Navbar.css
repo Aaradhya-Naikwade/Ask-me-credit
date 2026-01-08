@@ -29,35 +29,34 @@
   text-decoration: none;
 }
 
-.logo-box {
-  background: #2563eb;
-  padding: 10px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-}
-
-.wallet-icon {
-  width: 22px;
-  height: 22px;
-  stroke: #ffffff;
-  stroke-width: 2.5;
+.navbar-logo {
+  height: 100px;
+    width: auto;
+    object-fit: contain;
+    margin-left: -35px;
 }
 
 .brand {
-  font-size: 22px;
-  font-weight: 800;
-  color: #0f172a;
+  font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-left: -25px;
 }
 
 .brand-accent {
   color: #2563eb;
 }
 
-/* ===== DESKTOP NAV ===== */
-.navbar-center {
+/* ===== RIGHT NAV ===== */
+.navbar-right {
   display: flex;
+  align-items: center;
   gap: 36px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
   list-style: none;
 }
 
@@ -65,50 +64,18 @@
   font-weight: 600;
 }
 
-.nav-item a,
-.nav-dropdown-trigger {
+.nav-item a {
   text-decoration: none;
   color: #475569;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  transition: color 0.2s ease;
 }
 
 .nav-item.active a,
-.nav-item:hover a,
-.nav-item:hover .nav-dropdown-trigger {
+.nav-item:hover a {
   color: #2563eb;
 }
 
-/* ===== DROPDOWN ===== */
-.nav-item.dropdown {
-  position: relative;
-}
-
-.dropdown-mega {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 16px;
-  min-width: 260px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.mega-link {
-  display: block;
-  padding: 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #0f172a;
-}
-
-.mega-link:hover {
-  background: #f1f5f9;
-}
-
-/* ===== CTA ===== */
+/* ===== CTA BUTTON ===== */
 .cta-premium {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: white;
@@ -116,7 +83,7 @@
   border-radius: 14px;
   text-decoration: none;
   font-weight: 700;
-  /* display: none; */
+  white-space: nowrap;
 }
 
 .cta-premium.full-width {
@@ -168,23 +135,7 @@
   align-items: center;
 }
 
-.mobile-sublink {
-  padding-left: 16px;
-  font-size: 16px;
-  color: #475569;
-  text-decoration: none;
-}
-
-/* ===== ICON ANIMATION ===== */
-.chevron {
-  transition: transform 0.3s ease;
-}
-
-.chevron.rotate {
-  transform: rotate(180deg);
-}
-
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE HELPERS ===== */
 .desktop-only {
   display: flex;
 }
@@ -193,6 +144,7 @@
   display: none;
 }
 
+/* ===== TABLET & MOBILE ===== */
 @media (max-width: 1024px) {
   .desktop-only {
     display: none;
@@ -203,37 +155,23 @@
   }
 }
 
-
+/* ===== SMALL MOBILE ===== */
 @media (max-width: 375px) {
   .brand {
     font-size: 18px;
   }
 
-  .logo-box {
-    background: #2563eb;
-    padding: 10px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-  }
-
   .navbar-inner {
     padding: 0 10px;
+    border-radius: 0;
   }
 
   .navbar {
-    top: 0px;
-    padding: 0px;
+    top: 0;
+    padding: 0;
   }
 
-  .navbar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 0px;
-  }
-
-  .menu-toggle{
+  .menu-toggle {
     top: 20px;
     right: 10px;
   }

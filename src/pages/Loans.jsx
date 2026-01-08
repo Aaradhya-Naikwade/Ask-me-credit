@@ -1,57 +1,79 @@
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./styles/Loans.css";
-import { title } from "framer-motion/client";
 
-/* ---- TYPES OF LOANS ---- */
 const loanTypes = [
   {
-    title: "Personal Loan",
-    description:
-      "Instant personal loans with minimal documentation and flexible repayment options.",
+    title: "Personal Loan EMI",
+    description: "Calculate your Personal Loan EMIs in seconds",
     link: "/loans/personal",
-  },
-  {
-    title: "Home Loan",
-    description:
-      "Affordable home loans with low interest rates and long repayment tenure.",
-    link: "/loans/home",
+    image: "/images/loans/personal-loan.jpg",
   },
   {
     title: "Business Loan",
-    description:
-      "Fuel your business growth with quick approvals and flexible loan amounts.",
+    description: "Scale your operations with customized funding.",
     link: "/loans/business",
+    image: "/images/loans/business-loan.png",
   },
   {
-    title: "Car Loan",
-    description:
-      "Finance new or used cars with competitive interest rates and easy EMIs.",
-    link: "/loans/car",
-  },
-  {
-    title: "Two-Wheeler Loan",
-    description:
-      "Own your bike easily with fast approvals and budget-friendly EMIs.",
-    link: "/loans/two-wheeler",
-  },
-  {
-    title: "Commercial Vehicle Loan",
-    description:
-      "Loans designed for trucks, buses, and commercial vehicles to grow your fleet.",
-    link: "/loans/commercial-vehicle",
+    title: "Home Loan",
+    description: "Lowest interest rates for your dream home.",
+    link: "/loans/home",
+    image: "/images/loans/home-loan.jpg",
   },
   {
     title: "Education Loan",
     description:
       "Support higher education in India or abroad with flexible repayment options.",
     link: "/loans/education",
+    image: "/images/loans/education-loan.jpg",
+  },
+  {
+    title: "Working Capital Loan",
+    description: "Manage daily operations and cash flow gaps easily.",
+    link: "/loans/working-capital",
+    image: "/images/loans/capital.png",
+  },
+
+  {
+    title: "Loan Against Property",
+    description: "Unlock the value of your property for big needs.",
+    link: "/loans/lap",
+    image: "/images/loans/property.png",
+  },
+  {
+    title: "Overdraft Facility",
+    description: "Pay interest only on the amount you actually use.",
+    link: "/loans/overdraft",
+    image: "/images/loans/od.png",
+  },
+  {
+    title: "Car Loan",
+    description: "Drive home your dream car with instant approval.",
+    link: "/loans/car",
+    image: "/images/loans/car-loan.jpg",
   },
   {
     title: "Gold Loan",
-    description:
-      "Get instant funds by pledging gold with secure storage and high value.",
+    description: "Instant cash against your gold ornaments.",
     link: "/loans/gold",
+    image: "/images/loans/gold.png",
+  },
+  {
+    title: "Two-Wheeler Loan",
+    description:
+      "Own your bike easily with fast approvals and budget-friendly EMIs.",
+    link: "/loans/two-wheeler",
+    image: "/images/loans/gold.png",
+  },
+  {
+    title: "Commercial Vehicle Loan",
+    description:
+      "Loans designed for trucks, buses, and commercial vehicles to grow your fleet.",
+    link: "/loans/commercial-vehicle",
+    image: "/images/loans/gold.png",
+
   },
 ];
 
@@ -61,52 +83,42 @@ const LoanTypes = () => {
   return (
     <section className="loan-section">
       <div className="container">
-        {/* HEADER */}
         <motion.div
           className="loan-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
           <span className="section-pill">Loan Categories</span>
-          <h2>
-            Types of <span>Loans</span>
-          </h2>
-          <p>
-            Explore different loan options tailored to meet your personal and
-            business needs.
-          </p>
+          <h2>Types of <span>Loans</span></h2>
         </motion.div>
 
-        {/* GRID */}
         <div className="loan-grid">
           {loanTypes.map((item, index) => (
             <motion.div
               key={index}
-              className="loan-card clickable"
+              className="loan-card"
               onClick={() => navigate(item.link)}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              transition={{ delay: index * 0.05 }}
             >
-              <div className="card-content">
+              <div className="card-text-content">
                 <h3 className="loan-title">{item.title}</h3>
                 <p className="loan-desc">{item.description}</p>
               </div>
 
-              <div className="card-icon">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+              <div className="card-footer">
+                <div className="circle-arrow-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </div>
+
+                <div className="card-illustration">
+                  <img src={item.image} alt={item.title} />
+                </div>
               </div>
             </motion.div>
           ))}
