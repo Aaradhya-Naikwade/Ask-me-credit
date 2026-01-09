@@ -1,30 +1,38 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const LeadSchema = new mongoose.Schema(
+const leadSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
-      required: true
+      required: true,
+      trim: true
     },
+
     phone: {
       type: String,
-      required: true
+      required: true,
+      length: 10
     },
+
     loanType: {
       type: String,
       required: true
     },
+
     city: {
       type: String,
       required: true
     },
+
     status: {
       type: String,
-      enum: ["new", "contacted", "converted"],
-      default: "new"
+      enum: ["Active", "Inactive"],
+      default: "Active"
     }
   },
-  { timestamps: true }
+  {
+    timestamps: true 
+  }
 );
 
-module.exports = mongoose.model("Lead", LeadSchema);
+export default mongoose.model("Lead", leadSchema);

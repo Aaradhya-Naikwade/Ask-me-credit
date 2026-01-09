@@ -1,198 +1,164 @@
-
-// import { useEffect, useState } from "react";
-// import { getLeads, deleteLead } from "../services/api";
-// import "./Admin.css";
-
-// const AdminDashboard = () => {
-//   const [leads, setLeads] = useState([]);
-
-//   const loadLeads = async () => {
-//     try {
-//       const data = await getLeads();
-//       setLeads(data);
-//     } catch (err) {
-//       console.error("Failed to load leads", err);
-//     }
-//   };
-
-//   useEffect(() => {
-//     loadLeads();
-//   }, []);
-
-//   const handleDelete = async (id) => {
-//     if (window.confirm("Are you sure you want to delete this lead?")) {
-//       await deleteLead(id);
-//       loadLeads();
-//     }
-//   };
-
-//   const formatDate = (dateString) => {
-//     return new Date(dateString).toLocaleString("en-IN", {
-//       day: "2-digit",
-//       month: "short",
-//       year: "numeric",
-//       hour: "2-digit",
-//       minute: "2-digit"
-//     });
-//   };
-
-//   return (
-//     <div className="admin-dashboard">
-//       <h2>Leads Dashboard</h2>
-
-//       <table>
-//         <thead>
-//           <tr>
-//             <th>Name</th>
-//             <th>Phone</th>
-//             <th>Loan Type</th>
-//             <th>City</th>
-//             <th>Date</th>
-//             <th>Action</th>
-//           </tr>
-//         </thead>
-
-//         <tbody>
-//           {leads.length === 0 ? (
-//             <tr>
-//               <td colSpan="6" style={{ textAlign: "center" }}>
-//                 No leads found
-//               </td>
-//             </tr>
-//           ) : (
-//             leads.map((lead) => (
-//               <tr key={lead._id}>
-//                 <td>{lead.fullName}</td>
-//                 <td>{lead.phone}</td>
-//                 <td>{lead.loanType}</td>
-//                 <td>{lead.city}</td>
-//                 <td>{formatDate(lead.createdAt)}</td>
-//                 <td>
-//                   <button
-//                     onClick={() => handleDelete(lead._id)}
-//                     style={{
-//                       background: "#ef4444",
-//                       color: "#fff",
-//                       border: "none",
-//                       padding: "6px 10px",
-//                       borderRadius: "4px",
-//                       cursor: "pointer"
-//                     }}
-//                   >
-//                     Delete
-//                   </button>
-//                 </td>
-//               </tr>
-//             ))
-//           )}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default AdminDashboard;
-
-
-
-
-
-
 import { useEffect, useState } from "react";
-import { getLeads, deleteLead } from "../services/api";
-import "./Admin.css";
+import { useNavigate } from "react-router-dom";
+import {
+  getLeads,
+  updateLeadStatus,
+  deleteLead
+} from "../services/adminApi";
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   const [leads, setLeads] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const loadLeads = async () => {
+  const fetchLeads = async () => {
     try {
       const data = await getLeads();
       setLeads(data);
     } catch (err) {
-      console.error("Failed to load leads", err);
+      setError("Session expired. Please login again.");
+      localStorage.removeItem("adminToken");
+      navigate("/admin/login");
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadLeads();
+    fetchLeads();
   }, []);
 
+  const handleStatusChange = async (id, currentStatus) => {
+    const newStatus = currentStatus === "Active" ? "Inactive" : "Active";
+
+    await updateLeadStatus(id, newStatus);
+    setLeads((prev) =>
+      prev.map((lead) =>
+        lead._id === id ? { ...lead, status: newStatus } : lead
+      )
+    );
+  };
+
   const handleDelete = async (id) => {
-    if (window.confirm("Are you sure you want to delete this lead?")) {
-      await deleteLead(id);
-      loadLeads();
-    }
+    if (!window.confirm("Are you sure you want to delete this lead?")) return;
+
+    await deleteLead(id);
+    setLeads((prev) => prev.filter((lead) => lead._id !== id));
   };
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
-    window.location.href = "/admin/login";
+    navigate("/admin/login");
   };
 
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleString("en-IN", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    });
-  };
+  if (loading) {
+    return <p style={{ textAlign: "center" }}>Loading...</p>;
+  }
 
   return (
-    <div className="admin-dashboard">
-      {/* HEADER */}
-      <div className="admin-header">
-        <h2>Leads Dashboard</h2>
-        <button className="logout-btn" onClick={handleLogout}>
+    <div style={styles.container}>
+      <div style={styles.header}>
+        <h2>Admin Dashboard</h2>
+        <button onClick={handleLogout} style={styles.logout}>
           Logout
         </button>
       </div>
 
-      {/* TABLE */}
-      <table>
+      {error && <p style={styles.error}>{error}</p>}
+
+      <table style={styles.table}>
         <thead>
           <tr>
             <th>Name</th>
-            <th>Phone</th>
+            <th>Mobile</th>
             <th>Loan Type</th>
             <th>City</th>
             <th>Date</th>
-            <th>Action</th>
+            <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
         <tbody>
-          {leads.length === 0 ? (
-            <tr>
-              <td colSpan="6" className="empty-state">
-                No leads found
+          {leads.map((lead) => (
+            <tr key={lead._id}>
+              <td>{lead.fullName}</td>
+              <td>{lead.phone}</td>
+              <td>{lead.loanType}</td>
+              <td>{lead.city}</td>
+              <td>{new Date(lead.createdAt).toLocaleString()}</td>
+              <td>
+                <button
+                  onClick={() =>
+                    handleStatusChange(lead._id, lead.status)
+                  }
+                  style={{
+                    ...styles.statusBtn,
+                    background:
+                      lead.status === "Active" ? "#22c55e" : "#ef4444"
+                  }}
+                >
+                  {lead.status}
+                </button>
+              </td>
+              <td>
+                <button
+                  onClick={() => handleDelete(lead._id)}
+                  style={styles.delete}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
-          ) : (
-            leads.map((lead) => (
-              <tr key={lead._id}>
-                <td>{lead.fullName}</td>
-                <td>{lead.phone}</td>
-                <td>{lead.loanType}</td>
-                <td>{lead.city}</td>
-                <td>{formatDate(lead.createdAt)}</td>
-                <td>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(lead._id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))
-          )}
+          ))}
         </tbody>
       </table>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    padding: "30px"
+  },
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "20px"
+  },
+  logout: {
+    padding: "8px 14px",
+    background: "#ef4444",
+    color: "#fff",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer"
+  },
+  table: {
+    width: "100%",
+    borderCollapse: "collapse"
+  },
+  statusBtn: {
+    padding: "6px 10px",
+    color: "#fff",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer"
+  },
+  delete: {
+    padding: "6px 10px",
+    background: "#111827",
+    color: "#fff",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer"
+  },
+  error: {
+    color: "red",
+    marginBottom: "10px"
+  }
 };
 
 export default AdminDashboard;

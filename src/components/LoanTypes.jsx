@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; 
 import "../components/styles/LoanTypes.css";
 
-const loanData = [
+const loanData = [ 
   {
     title: "Personal Loan",
     features: ["Instant Approval", "No Collateral", "Flexible Tenure"],
@@ -43,7 +43,7 @@ const loanData = [
     title: "Gold Loan",
     features: ["High LTV", "Safe Storage", "Immediate Cash"],
     tag: "Secure",
-    image: "/images/loans/gold-loan.png",
+    image: "/images/loans/gold-loan.jpg",
     link: "/loans/gold"
   },
 ];

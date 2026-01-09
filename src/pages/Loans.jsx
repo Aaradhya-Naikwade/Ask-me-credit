@@ -35,14 +35,14 @@ const loanTypes = [
     title: "Working Capital Loan",
     description: "Manage daily operations and cash flow gaps easily.",
     link: "/loans/working-capital",
-    image: "/images/loans/capital.png",
+    image: "/images/loans/working-capital-loan.jpg",
   },
 
   {
     title: "Loan Against Property",
     description: "Unlock the value of your property for big needs.",
     link: "/loans/lap",
-    image: "/images/loans/property.png",
+    image: "/images/loans/loan-against-property.jpg",
   },
   {
     title: "Overdraft Facility",
@@ -60,21 +60,21 @@ const loanTypes = [
     title: "Gold Loan",
     description: "Instant cash against your gold ornaments.",
     link: "/loans/gold",
-    image: "/images/loans/gold.png",
+    image: "/images/loans/gold-loan.jpg",
   },
   {
     title: "Two-Wheeler Loan",
     description:
       "Own your bike easily with fast approvals and budget-friendly EMIs.",
     link: "/loans/two-wheeler",
-    image: "/images/loans/gold.png",
+    image: "/images/loans/two-wheeler-loan.jpg",
   },
   {
     title: "Commercial Vehicle Loan",
     description:
       "Loans designed for trucks, buses, and commercial vehicles to grow your fleet.",
     link: "/loans/commercial-vehicle",
-    image: "/images/loans/gold.png",
+    image: "/images/loans/commercial-vehicle-loan.jpg",
   },
 ];
 
